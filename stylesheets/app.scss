@@ -1,0 +1,332 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "flexbox";
+
+$mainWhite: white;
+$mainYellow: #f4cc00;
+$mainGrey: #F8F8F8;
+
+body {
+  font-family: 'Maven Pro', sans-serif;
+}
+
+i[data-icon] {
+  display: inline-block;
+  font-family: 'filmbot';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'filmbot';
+  src:url('../fonts/filmbot.eot?c3qyqy');
+  src:url('../fonts/filmbot.eot?#iefixc3qyqy') format('embedded-opentype'),
+  url('../fonts/filmbot.woff?c3qyqy') format('woff'),
+  url('../fonts/filmbot.ttf?c3qyqy') format('truetype'),
+  url('../fonts/filmbot.svg?c3qyqy#filmbot') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i[data-icon="file"]:before {
+  content: "\e600";
+}
+i[data-icon="bubble"]:before {
+  content: "\e601";
+}
+i[data-icon="search"]:before {
+  content: "\e602";
+}
+i[data-icon="ranking"]:before {
+  content: "\e604";
+}
+i[data-icon="play"]:before {
+  content: "\e603";
+}
+
+header {
+  #top-header {
+    border-bottom: 3px solid $mainYellow;
+    height: 50px;
+    @include display-flex();
+    @include justify-content(space-between);
+    #header-logo {
+      line-height: 50px;
+      padding: 0 10px;
+      font-size: 2em;
+      b {
+        color: $mainYellow;
+      }
+    }
+    nav input {
+      background: $mainGrey;
+      color: $mainYellow;
+      border: 0;
+      line-height: 30px;
+      width: 0px;
+      padding: 0 10px 0 30px;
+      @include border-radius(4px);
+      @include transition-duration(.2s);
+      &:focus {
+        width: 250px;
+      }
+      &:before {
+        content: "\e602";
+      }
+    }
+    nav span {
+      cursor: pointer;
+      line-height: 50px;
+      text-transform: uppercase;
+      padding: 15px;
+      &:hover {
+        background: $mainGrey;
+        color: $mainYellow;
+        @include transition(color 0.2s, background 0.2s);
+      }
+    }
+  }
+  #header-image {
+    @include flex;
+    height: 400px;
+    background: url(../images/header-image.jpg) no-repeat center center fixed;;
+    @include background-size(cover);
+    position: relative;
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(black, 0.5);
+    }
+    .info-container {
+      color: white;
+      z-index: 30;
+      padding: 13px;
+      position: absolute;
+      bottom: 0;
+      h3 {
+        font-size: 2em;
+        padding: 5px 0;
+      }
+    }
+  }
+}
+
+section {
+  &:nth-child(even) {
+    background: $mainGrey;
+  }
+  h2 {
+    color: $mainYellow;
+    padding: 1em;
+  }
+  .poster-container {
+    @include display-flex();
+    margin: .5em;
+    .poster {
+      position: relative;
+      margin: 0 .5em;
+      img {
+        width: 100%;
+      }
+      .poster-overlay {
+        position: absolute;
+        top: 20px;
+        bottom: 0;
+        width: 100%;
+        opacity: 0;
+        text-align: center;
+        color: white;
+        padding: 20px;
+        @include box-sizing(border-box);
+        @include display-flex();
+        @include flex-direction(column);
+        > div.info {
+          @include flex(1);
+          .subtitle {
+            font-size: .9em;
+            padding-top: 5px;
+          }
+          .description {
+            font-size: .7em;
+            padding-top: 5px;
+          }
+        }
+        > div.actions {
+          @include display-flex();
+          span {
+            @include flex(1);
+            color: $mainYellow;
+            cursor: pointer;
+            i[data-icon="ranking"] {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      &:hover {
+        img {
+          @include filter(blur(2px));
+          @include transition(.2s);
+        }
+        .poster-overlay {
+          top: 0;
+          opacity: 1;
+          @include transition(.2s);
+        }
+      }
+    }
+  }
+}
+
+button {
+  border: 2px solid $mainYellow;
+  background: none;
+  color: $mainYellow;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.modal-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(black,0.6);
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
+  z-index: 110;
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  width: 800px;
+  margin-left: -400px;
+  margin-top: -250px;
+  background: white;
+}
+
+.film-details-modal {
+  @include border-radius(4px);
+  @include display-flex();
+  aside {
+    @include flex(1);
+    @include display-flex();
+    @include flex-direction(column);
+    img {
+      width: 100%;
+      @include border-top-left-radius(4px);
+    }
+    .rating {
+      @include flex(1);
+      color: $mainYellow;
+      font-size: 2em;
+      text-align: center;
+      @include display-flex();
+      @include align-items(center);
+      @include justify-content(center);
+      i {
+        margin-right: 10px;
+      }
+    }
+    nav {
+      span {
+        display: block;
+        padding: 15px;
+        cursor: pointer;
+        i {
+          margin-right: 10px;
+        }
+        &:last-child {
+          @include border-bottom-left-radius(4px);
+        }
+        &:hover, &.selected {
+          background: $mainGrey;
+          color: $mainYellow;
+          border-right: 2px solid $mainYellow;
+          @include transition(.2s);
+        }
+      }
+    }
+  }
+  article {
+    background: $mainGrey;
+    @include border-right-radius(4px);
+    overflow: auto;
+    @include flex(3);
+    section {
+      h2 {
+        font-size: 2em;
+        text-align: center;
+      }
+    }
+    section.info {
+      table tbody tr {
+        td {
+          padding: 10px;
+        }
+        td:first-child {
+          vertical-align: top;
+          color: $mainYellow;
+          width: 25%;
+          padding-right: 10px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.counter b {
+  margin: 0 10px;
+  padding: 5px 10px;
+  background: $mainYellow;
+  border-radius: 4px;
+  color: white;
+}
+
+.movie-comment {
+  @include display-flex();
+  margin: 10px;
+  .movie-comment-user {
+    width: 60px;
+    margin-right: 10px;
+    img {
+      width: 100%;
+      @include border-radius(4px);
+    }
+  }
+  .movie-comment-text {
+    background: white;
+    font-size: .8em;
+    padding: 10px;
+    @include flex(1);
+    @include box-shadow(1px 1px 5px rgba(black, 0.2));
+    @include border-radius(2px);
+    .movie-comment-header {
+      margin-bottom: 10px;
+      @include display-flex();
+      @include justify-content(space-between);
+      span {
+        font-size: 1.3em;
+        color: $mainYellow;
+      }
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
