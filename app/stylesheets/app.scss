@@ -164,7 +164,7 @@ section {
         }
         > div.actions {
           @include display-flex();
-          span {
+          a {
             @include flex(1);
             color: $mainYellow;
             cursor: pointer;
@@ -243,10 +243,12 @@ button {
       }
     }
     nav {
-      span {
+      a {
         display: block;
         padding: 15px;
         cursor: pointer;
+        text-decoration: none;
+        color: black;
         i {
           margin-right: 10px;
         }

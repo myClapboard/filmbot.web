@@ -1,0 +1,153 @@
+<div class="modal film-details-modal" ng-controller="FilmCtrl">
+    <aside>
+        <img src="images/poster1.jpg"/>
+        <div class="rating"><i data-icon="ranking"></i>4.6</div>
+        <nav>
+            <a href="#/film/123/info" ng-class="{selected : page == 'info'}">
+                <i data-icon="file"></i>Ficha completa
+            </a>
+            <a href="#/film/123/comments" ng-class="{selected : page == 'comments'}" class="counter">
+                <i data-icon="bubble"></i>Críticas<b class="counter-number">12</b>
+            </a>
+            <a href="#/film/123/multimedia" ng-class="{selected : page == 'multimedia'}">
+                <i data-icon="play"></i>Multimedia
+            </a>
+        </nav>
+    </aside>
+    <article>
+        <section ng-show="page == 'info'" class="info">
+            <h2>Rage (Tokarev)</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Año</td>
+                    <td>2014</td>
+                </tr>
+                <tr>
+                    <td>Duración</td>
+                    <td>98 min.</td>
+                </tr>
+                <tr>
+                    <td>País</td>
+                    <td>Estados Unidos</td>
+                </tr>
+                <tr>
+                    <td>Director</td>
+                    <td>Paco Cabezas</td>
+                </tr>
+                <tr>
+                    <td>Guión</td>
+                    <td>Jim Agnew, Sean Keller</td>
+                </tr>
+                <tr>
+                    <td>Música</td>
+                    <td>Laurent Eyquem</td>
+                </tr>
+                <tr>
+                    <td>Fotografía</td>
+                    <td>Andrzej Sekula</td>
+                </tr>
+                <tr>
+                    <td>Reparto</td>
+                    <td>Nicolas Cage, Rachel Nichols, Peter Stormare, Danny Glover, Max Fowler/td>
+                </tr>
+                <tr>
+                    <td>Productora</td>
+                    <td>Hannibal Pictures / Tokarev Production</td>
+                </tr>
+                <tr>
+                    <td>Género</td>
+                    <td>Acción, Thriller | Secuestros / Desapariciones, Crimen, Mafia, Venganza</td>
+                </tr>
+                <tr>
+                    <td>Web oficial</td>
+                    <td>http://hannibalclassics.com/news/hannibal-loads-tokarev-and-goes-black</td>
+                </tr>
+                <tr>
+                    <td>Sinopsis</td>
+                    <td>Cuando un criminal reformado sale de la cárcel y descubre que su hija ha sido secuestrada por la
+                        mafia rusa, reúne a su antigua banda para vengarse. (FILMAFFINITY)
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+        <section ng-show="page == 'comments'" class="comments">
+            <h2>Críticas</h2>
+
+            <div class="movie-comment">
+                <div class="movie-comment-user">
+                    <img src="images/poster1.jpg">
+                </div>
+                <div class="movie-comment-text">
+                    <div class="movie-comment-header">
+                        <span>Name Surname</span>
+                        <span>5</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
+                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
+                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
+                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
+                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
+                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
+
+                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
+                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
+                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
+                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
+                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
+                </div>
+            </div>
+            <div class="movie-comment">
+                <div class="movie-comment-user">
+                    <img src="images/poster1.jpg">
+                </div>
+                <div class="movie-comment-text">
+                    <div class="movie-comment-header">
+                        <span>Name Surname</span>
+                        <span>5</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
+                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
+                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
+                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
+                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
+                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
+
+                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
+                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
+                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
+                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
+                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
+                </div>
+            </div>
+            <div class="movie-comment">
+                <div class="movie-comment-user">
+                    <img src="images/poster1.jpg">
+                </div>
+                <div class="movie-comment-text">
+                    <div class="movie-comment-header">
+                        <span>Name Surname</span>
+                        <span>5</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
+                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
+                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
+                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
+                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
+                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
+
+                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
+                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
+                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
+                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
+                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
+                </div>
+            </div>
+        </section>
+        <section ng-show="page == 'multimedia'" class="multimedia">
+
+        </section>
+    </article>
+</div>
+<div class="modal-background"></div>

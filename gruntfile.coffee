@@ -4,17 +4,15 @@ module.exports = (grunt) ->
 
     source:
       coffee:
-        app: []
-          [ 'source/model/*.coffee',
-            'source/view/*.coffee',
-            'source/index.coffee']
+        app:
+          [ 'app/coffee/*.coffee' ]
 
-      stylesheets: 'stylesheets/'
+      stylesheets: 'app/stylesheets/'
 
     coffee:
       compile:
         files:
-          '<%= meta.endpoint %>js/app.debug.js': ['<%= source.coffee.index %>']
+          'app/js/app.debug.js': ['<%= source.coffee.app %>']
 
 #    uglify:
 #      options: compress: false, banner: "<%= meta.banner %>"
@@ -24,10 +22,10 @@ module.exports = (grunt) ->
 #          '<%= meta.endpoint %>server.js': '<%= meta.endpoint %>js/server.debug.js'
 
     compass:
-      dist: 
-        options: 
+      dist:
+        options:
           sassDir: "<%= source.stylesheets %>"
-          cssDir:'css'
+          cssDir: 'app/css'
 
     cssmin:
       minify:
@@ -38,15 +36,15 @@ module.exports = (grunt) ->
         ext: '.min.css'
 
     watch:
-#      coffee:
-#        files: ["<%= source.coffee.app %>"] #, "<%= source.coffee.index %>" ]
-#        tasks: ["coffee"]
+      coffee:
+        files: ["<%= source.coffee.app %>"]
+        tasks: ["coffee"]
       stylesheets:
         files: ["<%= source.stylesheets %>*.scss"]
         tasks: ["compass"]
-      #jade:
-       # files: ["<%= source.jade %>*.jade"]
-        #tasks: ["jade"]
+  #jade:
+  # files: ["<%= source.jade %>*.jade"]
+  #tasks: ["jade"]
 
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
@@ -57,11 +55,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-cssmin"
 
 
-  grunt.registerTask "default", [ "compass", "cssmin"] #,"coffe","concat","uglify"]
+  grunt.registerTask "default", [ "compass", "cssmin", "coffee"] #,"coffe","concat","uglify"]
 
-  ###
-    concat:
-      css:
-        src: ['<%= source.css_core %>'],
-        dest: '<%= meta.endpoint %>static/stylesheets/watch.css'
+###
+  concat:
+    css:
+      src: ['<%= source.css_core %>'],
+      dest: '<%= meta.endpoint %>static/stylesheets/watch.css'
 ###
