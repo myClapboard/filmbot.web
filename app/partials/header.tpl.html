@@ -1,7 +1,21 @@
 <div id="top-header">
     <span id="header-logo"><b>film</b>bot</span>
     <nav>
-        <input>
+        <div id="film-search">
+            <input placeholder="Buscar" ng-keyup="updateSearch($event.keyCode, searchString)" ng-model="searchString"
+                   ng-focus="hasFocus(true)" ng-blur="hasFocus(false)">
+            <div id="film-search-dropdown" ng-show="isDropdownVisible()">
+                <div class="film-search-row" ng-show="searchFilms.length === 0">
+                    <p class="title">Buscando...</p>
+                </div>
+                <div class="film-search-row" ng-repeat="film in searchFilms" ng-mousedown="showFilm(film.id)"
+                     ng-class="{selected: $index == selectedFilm}">
+                    <img src="images/poster1.jpg">
+                    <p class="title">{{ film.title }}</p>
+                    <p class="year">{{ film.year }}</p>
+                </div>
+            </div>
+        </div>
         <span>Link 1</span>
         <span>Link 2</span>
         <span>Link 3</span>
@@ -12,6 +26,11 @@
     <div class="overlay"></div>
     <div class="info-container">
         <h3>Gravity</h3>
-        <button>Ver ficha completa</button>
+
+        <div class="actions">
+            <a href="#/film/123/info"><i data-icon="file"></i></a>
+            <a href="#/film/123/comments"><i data-icon="ranking"></i>4.5</a>
+            <a href="#/film/123/multimedia"><i data-icon="play"></i></a>
+        </div>
     </div>
 </div>

@@ -6,14 +6,20 @@
             <div class="poster-overlay">
                 <div class="info">
                     <p>{{ film.title }}</p>
-                    <p class="subtitle">{{ film.year }} | {{ film.length }} mins</p>
-                    <p class="subtitle">{{ film.director }}</p>
-                    <p class="description">{{ film.description }}</p>
+                    <p class="subtitle">{{ film.year }} | {{ film.duration }} mins</p>
+                    <p class="subtitle">
+                        <a ng-repeat="director in film.directors">
+                            {{ director.artist.first_name }} {{ director.artist.last_name }}
+                        </a>
+                    </p>
+                    <p class="description">
+                        {{ film.storyline }}
+                    </p>
                 </div>
                 <div class="actions">
-                    <a href="#/film/123/comments"><i data-icon="ranking"></i>4.5</a>
-                    <a href="#/film/123/multimedia"><i data-icon="play"></i></a>
-                    <a href="#/film/123/info"><i data-icon="file"></i></a>
+                    <a ng-href="#/film/{{ film.id }}/info"><i data-icon="file"></i></a>
+                    <a ng-href="#/film/{{ film.id }}/comments"><i data-icon="ranking"></i>4.5</a>
+                    <a ng-href="#/film/{{ film.id }}/multimedia"><i data-icon="play"></i></a>
                 </div>
             </div>
         </div>
@@ -32,9 +38,9 @@
                     <p class="description">{{ film.description }}</p>
                 </div>
                 <div class="actions">
+                    <a href="#/film/123/info"><i data-icon="file"></i></a>
                     <a href="#/film/123/comments"><i data-icon="ranking"></i>4.5</a>
                     <a href="#/film/123/multimedia"><i data-icon="play"></i></a>
-                    <a href="#/film/123/info"><i data-icon="file"></i></a>
                 </div>
             </div>
         </div>
