@@ -1,11 +1,11 @@
 {
-  "name": "FilmbotApp",
+  "name": "myClapboard web client",
   "description": "",
   "version": "0.1.0",
   "homepage": "",
   "author": {
     "name": "Gorka Laucirica",
-    "site": "http://*"
+    "site": "http://gorkalaucirica.net"
   },
   "main": [],
   "keywords": [],

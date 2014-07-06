@@ -12,7 +12,7 @@ body {
 
 i[data-icon] {
   display: inline-block;
-  font-family: 'filmbot';
+  font-family: 'myclapboard';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -26,12 +26,12 @@ i[data-icon] {
 }
 
 @font-face {
-  font-family: 'filmbot';
-  src:url('../fonts/filmbot.eot?c3qyqy');
-  src:url('../fonts/filmbot.eot?#iefixc3qyqy') format('embedded-opentype'),
-  url('../fonts/filmbot.woff?c3qyqy') format('woff'),
-  url('../fonts/filmbot.ttf?c3qyqy') format('truetype'),
-  url('../fonts/filmbot.svg?c3qyqy#filmbot') format('svg');
+  font-family: 'myclapboard';
+  src:url('../fonts/myclapboard.eot?c3qyqy');
+  src:url('../fonts/myclapboard.eot?#iefixc3qyqy') format('embedded-opentype'),
+  url('../fonts/myclapboard.woff?c3qyqy') format('woff'),
+  url('../fonts/myclapboard.ttf?c3qyqy') format('truetype'),
+  url('../fonts/myclapboard.svg?c3qyqy#myclapboard') format('svg');
   font-weight: normal;
   font-style: normal;
 }
