@@ -42,8 +42,10 @@ app.controller('IndexCtrl', ['$scope', 'Movies', ($scope, Movies) ->
 
 ])
 
-app.controller('FilmCtrl', ['$scope', '$routeParams', 'Movies', ($scope, $routeParams, Movies) ->
-  $scope.film = Movies.get(id: $routeParams.filmId)
+app.controller('FilmCtrl', ['$scope', '$location', 'Movies', ($scope, $location, Movies) ->
+  filmId = $location.$$path.split('/')[2]
+  $scope.film = Movies.get(id: filmId)
+
   $scope.page = 'info'
   $scope.changePage = (page) ->
     $scope.page = page
