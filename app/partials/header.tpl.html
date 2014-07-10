@@ -10,7 +10,7 @@
                 </div>
                 <div class="film-search-row" ng-repeat="film in searchFilms" ng-mousedown="showFilm(film.id)"
                      ng-class="{selected: $index == selectedFilm}">
-                    <img src="images/poster1.jpg">
+                    <img ng-src="http://api.myclapboard.com/uploads/images/{{ film.images[0].name }}"/>
                     <p class="title">{{ film.title }}</p>
                     <p class="year">{{ film.year }}</p>
                 </div>

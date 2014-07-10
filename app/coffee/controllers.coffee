@@ -14,7 +14,7 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
       $scope.dropdownVisible = false
       $scope.showFilm($scope.searchFilms[$scope.selectedFilm].id)
     else
-      $scope.searchFilms = Movies.query(count: 50, q: searchString)
+      $scope.searchFilms = Movies.query(count: 5, q: searchString)
       $scope.selectedFilm = 0
 
   $scope.hasFocus = (focus) ->
@@ -25,7 +25,7 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
     return $scope.dropdownVisible
 
   $scope.showFilm = (id) ->
-    $location.url("/film/#{id}/info")
+    $location.url("/film/#{id}")
 
   $scope.selectPreviousValue = ->
     $scope.selectedFilm = if $scope.selectedFilm > 0 then $scope.selectedFilm - 1 else 0
@@ -37,13 +37,15 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
 ])
 
 app.controller('IndexCtrl', ['$scope', 'Movies', ($scope, Movies) ->
-  $scope.lastest = Movies.query(count: 50)
-  $scope.top = Movies.query(count: 50)
+  $scope.lastest = Movies.query(count: 5)
+  $scope.top = Movies.query(count: 5)
 
 ])
 
-app.controller('FilmCtrl', ['$scope', '$routeParams', ($scope, $routeParams) ->
-  $scope.page = $routeParams.page
-#  $scope.film = Movies.get(id: $routeParams.id)
+app.controller('FilmCtrl', ['$scope', '$routeParams', 'Movies', ($scope, $routeParams, Movies) ->
+  $scope.film = Movies.get(id: $routeParams.filmId)
+  $scope.page = 'info'
+  $scope.changePage = (page) ->
+    $scope.page = page
 ])
 

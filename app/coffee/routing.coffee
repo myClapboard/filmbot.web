@@ -4,7 +4,7 @@ app.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   $routeProvider.when '/',
     templateUrl: 'partials/index.tpl.html'
     controller: 'IndexCtrl'
-  $routeProvider.when '/film/:filmId/:page',
+  $routeProvider.when '/film/:filmId',
     templateUrl: 'partials/film.tpl.html'
     controller: 'FilmCtrl'
   $routeProvider.otherwise({redirectTo:'/404'})

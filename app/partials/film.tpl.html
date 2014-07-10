@@ -1,73 +1,79 @@
 <div class="modal film-details-modal" ng-controller="FilmCtrl">
     <aside>
-        <img src="images/poster1.jpg"/>
+        <img ng-show="film.images[0].name" ng-src="http://api.myclapboard.com/uploads/images/{{ film.images[0].name }}"/>
         <div class="rating"><i data-icon="ranking"></i>4.6</div>
         <nav>
-            <a href="#/film/123/info" ng-class="{selected : page == 'info'}">
+            <a ng-click="changePage('info')" ng-class="{selected : page == 'info'}">
                 <i data-icon="file"></i>Ficha completa
             </a>
-            <a href="#/film/123/comments" ng-class="{selected : page == 'comments'}" class="counter">
+            <a ng-click="changePage('comments')" ng-class="{selected : page == 'comments'}" class="counter">
                 <i data-icon="bubble"></i>Críticas<b class="counter-number">12</b>
             </a>
-            <a href="#/film/123/multimedia" ng-class="{selected : page == 'multimedia'}">
+            <a ng-click="changePage('multimedia')" ng-class="{selected : page == 'multimedia'}">
                 <i data-icon="play"></i>Multimedia
             </a>
         </nav>
     </aside>
     <article>
         <section ng-show="page == 'info'" class="info">
-            <h2>Rage (Tokarev)</h2>
+            <h2>{{ film.title }}</h2>
             <table>
                 <tbody>
                 <tr>
                     <td>Año</td>
-                    <td>2014</td>
+                    <td>{{ film.release_date | date:'yyyy' }}</td>
                 </tr>
                 <tr>
                     <td>Duración</td>
-                    <td>98 min.</td>
+                    <td>{{ film.duration }} min.</td>
                 </tr>
                 <tr>
                     <td>País</td>
-                    <td>Estados Unidos</td>
+                    <td>{{ film.country.name }}</td>
                 </tr>
                 <tr>
                     <td>Director</td>
-                    <td>Paco Cabezas</td>
+                    <td>
+                        <a ng-repeat="director in film.directors">
+                            {{ director.artist.first_name }} {{ director.artist.last_name}}
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Guión</td>
-                    <td>Jim Agnew, Sean Keller</td>
-                </tr>
-                <tr>
-                    <td>Música</td>
-                    <td>Laurent Eyquem</td>
-                </tr>
-                <tr>
-                    <td>Fotografía</td>
-                    <td>Andrzej Sekula</td>
+                    <td>
+                        <a ng-repeat="writer in film.writers">
+                            {{ writer.artist.first_name }} {{ writer.artist.last_name}}
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Reparto</td>
-                    <td>Nicolas Cage, Rachel Nichols, Peter Stormare, Danny Glover, Max Fowler/td>
+                    <td>
+                        <a ng-repeat="actor in film.cast">
+                            {{ actor.artist.first_name }} {{ actor.artist.last_name}}
+                        </a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Productora</td>
-                    <td>Hannibal Pictures / Tokarev Production</td>
+                    <td>{{ film.producer }}</td>
                 </tr>
                 <tr>
                     <td>Género</td>
-                    <td>Acción, Thriller | Secuestros / Desapariciones, Crimen, Mafia, Venganza</td>
+                    <td>
+                        <a ng-repeat="genre in film.genres">
+                            {{ genre.name }}
+                        </a>
+                    </td>
                 </tr>
-                <tr>
-                    <td>Web oficial</td>
-                    <td>http://hannibalclassics.com/news/hannibal-loads-tokarev-and-goes-black</td>
-                </tr>
+                <!--<tr>-->
+                    <!--<td>Web oficial</td>-->
+                    <!--<td>http://hannibalclassics.com/news/hannibal-loads-tokarev-and-goes-black</td>-->
+                <!--</tr>-->
                 <tr>
                     <td>Sinopsis</td>
-                    <td>Cuando un criminal reformado sale de la cárcel y descubre que su hija ha sido secuestrada por la
-                        mafia rusa, reúne a su antigua banda para vengarse. (FILMAFFINITY)
-                    </td>
+                    <td>{{ film.storyline }}</td>
                 </tr>
                 </tbody>
             </table>
