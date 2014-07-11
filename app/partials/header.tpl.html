@@ -5,7 +5,10 @@
             <input placeholder="Buscar" ng-keyup="updateSearch($event.keyCode, searchString)" ng-model="searchString"
                    ng-focus="hasFocus(true)" ng-blur="hasFocus(false)">
             <div id="film-search-dropdown" ng-show="isDropdownVisible()">
-                <div class="film-search-row" ng-show="searchFilms.length === 0">
+                <div class="film-search-row" ng-show="searchFilms.length === 0 && !searching">
+                    <p class="title">No se encontraron resultados</p>
+                </div>
+                <div class="film-search-row" ng-show="searching">
                     <p class="title">Buscando...</p>
                 </div>
                 <div class="film-search-row" ng-repeat="film in searchFilms" ng-mousedown="showFilm(film.id)"

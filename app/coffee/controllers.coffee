@@ -4,6 +4,7 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
   $scope.searchFilms = []
   $scope.dropdownVisible = false
   $scope.searchString = ""
+  $scope.searching = false
 
   $scope.updateSearch = (keyCode, searchString)->
     if keyCode is 40
@@ -14,7 +15,9 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
       $scope.dropdownVisible = false
       $scope.showFilm($scope.searchFilms[$scope.selectedFilm].id)
     else
-      $scope.searchFilms = Movies.query(count: 5, q: searchString)
+      $scope.searching = true
+      $scope.searchFilms = Movies.query {count: 5, q: searchString}, ->
+        $scope.searching = false
       $scope.selectedFilm = 0
 
   $scope.hasFocus = (focus) ->
