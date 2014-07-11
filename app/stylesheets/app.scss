@@ -172,6 +172,7 @@ section {
     .poster {
       @include flex(1);
       position: relative;
+      margin-bottom: -2px;
       img {
         width: 100%;
       }
