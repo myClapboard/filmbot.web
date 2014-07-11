@@ -257,10 +257,25 @@ button {
   margin-left: -400px;
   margin-top: -250px;
   background: white;
+  @include border-radius(4px);
+  .close-modal {
+    position: absolute;
+    right: 0;
+    padding: 10px 16px;
+    background: $mainYellow;
+    color: white;
+    cursor: pointer;
+    @include border-top-right-radius(4px);
+    @include border-bottom-left-radius(4px);
+    @include transition(.2s);
+    &:hover {
+      font-size: 1.2em;
+      padding: 14px 20px;
+    }
+  }
 }
 
 .film-details-modal {
-  @include border-radius(4px);
   @include display-flex();
   aside {
     @include flex(1);

@@ -9,9 +9,13 @@ app.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
     controller: null,
     resolve:
       data1 : ($q, ngDialog, $rootScope) ->
+        $rootScope.closeDialog = ->
+          window.history.back()
         dialog = ngDialog.open
           template: 'partials/film.tpl.html'
           controller: 'FilmCtrl'
+          scope: $rootScope,
+          closeByEscape: false #Disabled due to issues with routing
 
         $rootScope.$on '$locationChangeSuccess', ->
           dialog.close()

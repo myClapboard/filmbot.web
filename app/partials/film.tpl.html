@@ -1,4 +1,5 @@
 <div class="modal film-details-modal" ng-controller="FilmCtrl">
+    <span class="close-modal" ng-click="closeDialog()">x</span>
     <aside>
         <img ng-show="film.images[0].name" ng-src="http://api.myclapboard.com/uploads/images/{{ film.images[0].name }}"/>
         <div class="rating"><i data-icon="ranking"></i>4.6</div>
