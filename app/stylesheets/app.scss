@@ -65,6 +65,12 @@ header {
     #film-search {
       display: inline-block;
       position: relative;
+      i[data-icon="search"] {
+        position: absolute;
+        padding: 8px 12px;
+        color: grey;
+        cursor: pointer;
+      }
       #film-search-dropdown {
         position: absolute;
         z-index: 200;
@@ -103,6 +109,7 @@ header {
       @include transition-duration(.2s);
       &:focus {
         width: 250px;
+        padding: 0 10px 0 40px;
       }
       &:before {
         content: "\e602";
