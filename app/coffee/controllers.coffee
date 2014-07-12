@@ -15,17 +15,17 @@ app.controller('HeaderCtrl', ['$scope', '$location', 'Movies' , ($scope, $locati
       $scope.dropdownVisible = false
       $scope.showFilm($scope.searchFilms[$scope.selectedFilm].id)
     else
+      $scope.searchString = searchString
       $scope.searching = true
       $scope.searchFilms = Movies.query {count: 5, q: searchString}, ->
         $scope.searching = false
       $scope.selectedFilm = 0
 
   $scope.hasFocus = (focus) ->
-    if focus then $scope.searchString = ""
     $scope.dropdownVisible = focus
 
   $scope.isDropdownVisible = ->
-    return $scope.dropdownVisible
+    $scope.dropdownVisible and $scope.searchString isnt ""
 
   $scope.showFilm = (id) ->
     $location.url("/film/#{id}")
