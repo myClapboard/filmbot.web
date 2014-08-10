@@ -2,7 +2,7 @@
     <h2>Ultimas películas</h2>
     <div class="poster-container">
         <div class="poster" ng-repeat="film in lastest">
-            <img ng-src="http://api.myclapboard.com/uploads/images/{{ film.images[0].name }}"/>
+            <img ng-src="{{ film.poster }}"/>
             <div class="poster-overlay">
                 <div class="info">
                     <p>{{ film.title }}</p>
@@ -27,7 +27,7 @@
     <h2>Top películas</h2>
     <div class="poster-container">
         <div class="poster" ng-repeat="film in lastest">
-            <img ng-src="http://api.myclapboard.com/uploads/images/{{ film.images[0].name }}"/>
+            <img ng-src="{{ film.poster }}"/>
             <div class="poster-overlay">
                 <div class="info">
                     <p>{{ film.title }}</p>
