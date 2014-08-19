@@ -2,13 +2,13 @@
     <span class="close-modal" ng-click="closeDialog()">x</span>
     <aside>
         <img ng-show="film.poster" ng-src="{{ film.poster }}"/>
-        <div class="rating"><i data-icon="ranking"></i>4.6</div>
+        <div class="rating"><i data-icon="ranking"></i>{{ film.score }}</div>
         <nav>
             <a ng-click="changePage('info')" ng-class="{selected : page == 'info'}">
                 <i data-icon="file"></i>Ficha completa
             </a>
             <a ng-click="changePage('comments')" ng-class="{selected : page == 'comments'}" class="counter">
-                <i data-icon="bubble"></i>Críticas<b class="counter-number">12</b>
+                <i data-icon="bubble"></i>Críticas
             </a>
             <a ng-click="changePage('multimedia')" ng-class="{selected : page == 'multimedia'}">
                 <i data-icon="play"></i>Multimedia
@@ -82,73 +82,16 @@
         <section ng-show="page == 'comments'" class="comments">
             <h2>Críticas</h2>
 
-            <div class="movie-comment">
+            <div class="movie-comment" ng-repeat="review in reviews">
                 <div class="movie-comment-user">
                     <img src="images/poster1.jpg">
                 </div>
                 <div class="movie-comment-text">
                     <div class="movie-comment-header">
-                        <span>Name Surname</span>
+                        <span>{{ review.title }}</span>
                         <span>5</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
-                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
-                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
-                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
-                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
-                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
-
-                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
-                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
-                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
-                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
-                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
-                </div>
-            </div>
-            <div class="movie-comment">
-                <div class="movie-comment-user">
-                    <img src="images/poster1.jpg">
-                </div>
-                <div class="movie-comment-text">
-                    <div class="movie-comment-header">
-                        <span>Name Surname</span>
-                        <span>5</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
-                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
-                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
-                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
-                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
-                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
-
-                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
-                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
-                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
-                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
-                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
-                </div>
-            </div>
-            <div class="movie-comment">
-                <div class="movie-comment-user">
-                    <img src="images/poster1.jpg">
-                </div>
-                <div class="movie-comment-text">
-                    <div class="movie-comment-header">
-                        <span>Name Surname</span>
-                        <span>5</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum ut sem eget lacinia.
-                        Curabitur purus purus, mollis id lacus et, mollis fermentum eros. Nunc enim est, molestie nec
-                        arcu non, scelerisque aliquam arcu. Praesent at ipsum lacinia, malesuada orci et, aliquam sem.
-                        In mauris mi, sollicitudin eu felis nec, varius ultrices tellus. Integer metus mi, ultrices ac
-                        pharetra nec, tristique eu tellus. Donec ut lacus vitae diam laoreet dignissim eget et leo.
-                        Nullam rhoncus arcu a sem congue, non tristique sapien condimentum.</p>
-
-                    <p>Donec fermentum leo nulla, ac ullamcorper lorem malesuada sollicitudin. Aliquam massa magna,
-                        mollis ut neque ac, fringilla sollicitudin ligula. Pellentesque non nisl et ipsum commodo
-                        luctus. Vivamus in quam accumsan, imperdiet tortor in, mollis dolor. Fusce viverra odio nec
-                        felis varius tristique. Suspendisse pulvinar mauris nec elit imperdiet, sit amet dictum arcu
-                        pulvinar. Nulla fermentum tristique convallis. Proin mattis justo vitae tincidunt hendrerit.</p>
+                    <p>{{ review.content }}</p>
                 </div>
             </div>
         </section>
